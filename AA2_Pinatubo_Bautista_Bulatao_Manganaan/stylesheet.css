@@ -1,0 +1,268 @@
+.body{
+	background-color: #f1eee8;
+	min-height: 200px;
+}
+.wrap{
+  overflow: hidden;
+  position: relative;
+}
+.sonnetbg{
+  opacity: 0.3;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  margin-top: 10px;
+}
+.row1{
+  position: relative;
+}
+
+.title, .title2{
+	font-weight: bold;
+	font-size: 36px;
+	text-align: center;
+	margin-bottom: 1.5%;
+}
+.title2{
+	font-size: 24px;
+}
+.value{
+	font-size: 29px;
+	text-align: center;
+	margin-top: 1%;
+	margin-bottom: 3.5%;
+	font-weight: bold;
+}
+.text{
+	font-size: 25px;
+	text-align: center;
+	margin-top: 1%;
+	word-wrap: break-wford;
+}
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.text1{
+	font-size: 25px;
+	text-align: left;
+	margin-top: 1%;
+	float: left;
+	margin-left: 2%;
+	margin-right: 2%;
+	overflow: hidden;
+	clear: right;
+}
+.imgback{
+	float: none;
+	width: 50%;
+	margin-left: auto;
+    margin-right: auto;
+}
+.name, .subname, .title{
+	font-family: 'Kanit', sans-serif;
+}
+.name{
+	font-size: 48px;
+	text-align: center;
+	margin: 0;
+	padding-top: 11px;
+}
+.subname{
+	font-size: 24px;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+.sidelink{
+	margin-top: 22px;
+}
+* {
+  box-sizing: border-box;
+}
+
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+[class*="col-"] {
+  float: left;
+  padding: 15px;
+}
+
+html {
+  font-family: 'Roboto Slab', serif;
+}
+
+.header{
+  overflow: hidden;
+  height: 20%;
+  background-color: #0e2c69;
+  color: #ffffff;
+  padding: 1%; 
+  font-size: 10px;
+  margin: -8px;
+}
+
+.aside {
+  background-color: #33b5e5;
+  padding: 15px;
+  color: #ffffff;
+  text-align: center;
+  font-size: 14px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.footer {
+  overflow: hidden;
+  height: 170%;
+  background-color: #f1eee8;
+  color: #0a1e39;
+  margin: -8px;
+  margin-right: -16px;
+  max-width: 100%;
+  
+}
+
+/* For mobile phones: */
+[class*="col-"] {
+  width: 100%;
+}
+
+@media only screen and (min-width: 600px) {
+  /* For tablets: */
+  .col-s-1 {width: 8.33%;}
+  .col-s-2 {width: 16.66%;}
+  .col-s-3 {width: 25%;}
+  .col-s-4 {width: 33.33%;}
+  .col-s-5 {width: 41.66%;}
+  .col-s-6 {width: 50%;}
+  .col-s-7 {width: 58.33%;}
+  .col-s-8 {width: 66.66%;}
+  .col-s-9 {width: 75%;}
+  .col-s-10 {width: 83.33%;}
+  .col-s-11 {width: 91.66%;}
+  .col-s-12 {width: 100%;}
+}
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .col-1 {width: 8.33%;}
+  .col-2 {width: 16.66%;}
+  .col-3 {width: 25%;}
+  .col-4 {width: 33.33%;}
+  .col-5 {width: 41.66%;}
+  .col-6 {width: 50%;}
+  .col-7 {width: 58.33%;}
+  .col-8 {width: 66.66%;}
+  .col-9 {width: 75%;}
+  .col-10 {width: 83.33%;}
+  .col-11 {width: 91.66%;}
+  .col-12 {width: 100%;}
+}
+img{
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5%;
+}
+.hlink-white:link, .hlink-white:active, .hlink-white:visited, .hlink-white2:link, .hlink-white2:active, .hlink-white2:visited{
+  color: white;
+  text-decoration: underline;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 16px;
+  text-align: center;
+  transition-duration: 0.4s;
+}
+.hlink-white:hover{
+  color: gray;
+  text-decoration: underline;
+  display: block;
+  font-size: 21px;
+  text-align: center;
+}
+.hlink-white2:hover{
+  color: #0e2c69;
+  text-decoration: underline;
+  display: block;
+  text-align: center;
+}
+.sonnet:link, .sonnet:active, .sonnet:visited{
+	color: black;
+	text-decoration: underline;
+	display: block;
+	text-align: left;
+	font-size: 16x;
+	transition-duration: 0.4s;
+}
+.sonnet:hover{
+	color: gray;
+	text-decoration: underline;
+	display: block;
+	font-size: 21px;
+}
+.titles{
+	text-align: center;
+	font-size: 40px;
+	font-family: 'Kanit', sans-serif;
+}
+.left{
+	text-align: left;
+	margin-bottom: -1%;
+	margin-top: 2%
+}
+ul{
+	font-size: 20px;
+}
+.name{
+	font-size: 46px;
+}
+.button, .button2{
+	background-color: #0e2c69;
+	font-family: 'Kanit', sans-serif;
+	border: 2px solid;
+	color: white;
+	padding: 10px 32px;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	font-size: 16px;
+	transition-duration: 0.4s;
+	margin-left: auto;
+}
+.button:hover{
+	background-color: white;
+	color: #0e2c69;
+	border: 1px solid #0e2c69;
+}
+
+.text2, .title1{
+	font-size: 25px;
+	text-align: left;
+}
+.title1{
+	font-family: 'Kanit', sans-serif;
+	font-size: 36px;
+}
+table{
+	border: 1px solid;
+	border-collapse: collapse;
+	width: 100%;
+}
+table, th, td {
+    border: 1px solid;
+}
+th, td{
+	text-align: center;
+}
+
