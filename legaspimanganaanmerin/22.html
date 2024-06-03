@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloom Bloom Bakudan</title>
+    <link rel="icon" href="bbk.svg" type="logo">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* CSS styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f6f6f6; /* Soft pastel background */
+            position: relative; /* Position for the currency dropdown */
+        }
+
+        header {
+            background-color: #99cc99; /* Soft green */
+            color: #444; /* Dark gray */
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center; /* Align items vertically */
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #444; /* Dark gray */
+            text-decoration: none;
+        }
+
+        .navbar-logo {
+            width: 40px;
+            height: auto;
+        }
+
+        section {
+            padding: 20px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ccc;
+            background-color: #fff; /* White */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow */
+            border-radius: 8px; /* Rounded corners */
+        }
+
+        #cart {
+            border-bottom: none;
+        }
+
+        #cart-items {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        #cart-items li {
+            margin-bottom: 10px;
+        }
+
+        #total {
+            font-weight: bold;
+        }
+
+        .product {
+            display: flex;
+            align-items: center;
+            flex-direction: column; /* Align items vertically */
+            margin-bottom: 20px;
+        }
+
+        .product img {
+    width: 250px; /* Adjust image width */
+    height: 250px; /* Set height to maintain aspect ratio */
+    margin-bottom: 10px;
+    border-radius: 8px; /* Rounded product images */
+}
+
+        .hot-sign {
+            color: #ff6b6b; /* Soft red */
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .remove-from-cart {
+            margin-top: 10px;
+            background-color: #dc3545; /* Red */
+            color: #fff; /* White */
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .remove-from-cart:hover {
+            background-color: #c82333; /* Darker red on hover */
+        }
+
+        #delivery-details {
+            display: none; /* Initially hidden */
+        }
+
+        /* Currency dropdown */
+        .currency-dropdown {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #fff;
+            padding: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .currency-dropdown select {
+            padding: 5px;
+            font-size: 14px;
+        }
+
+        /* Proceed to Checkout button */
+        #proceed-to-checkout {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        #proceed-to-checkout a {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff; /* Blue */
+            color: #fff; /* White */
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        #proceed-to-checkout a:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        /* Product display */
+        #product-display {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-gap: 20px;
+            margin-top: 20px;
+        }
+
+        #product-display .product {
+            border: 1px solid #ddd;
+            padding: 10px;
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+
+        #product-display .product:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        #product-display .product img {
+            width: 100%;
+            border-radius: 8px;
+        }
+
+        #product-display .product p {
+            margin: 10px 0;
+            font-weight: bold;
+        }
+
+        /* Header Slideshow */
+        #headerCarousel {
+            margin-top: 20px;
+        }
+
+        .carousel-item {
+            height: 300px; /* Adjust height as needed */
+            background-size: cover;
+            background-position: center;
+        }
+
+        .carousel-caption {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: #fff;
+            text-align: center;
+        }
+
+        .carousel-caption h1 {
+            font-size: 2.5rem;
+        }
+
+        /* Carousel control buttons */
+        .carousel-control-prev,
+        .carousel-control-next {
+            width: auto;
+            padding: 0 15px;
+            color: #fff;
+            background: none;
+            border: none;
+            font-size: 3rem;
+        }
+
+        /* Carousel indicators */
+        .carousel-indicators li {
+            background-color: rgba(255, 255, 255, 0.5);
+            border-color: rgba(0, 0, 0, 0.5);
+        }
+
+        .carousel-indicators .active {
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><img src="bbk.svg" alt="Bloom Bloom Bakudan Logo" class="title-logo" id="menu-toggle"></li>
+                <li><h1>Bloom Bloom Bakudan</h1></li>
+                <li id="main-nav">
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="catalog.html">Catalog</a></li>
+                        <li><a href="#cart"><img src="cart.svg" alt="Cart" class="navbar-logo"></a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+   <!-- Header Slideshow -->
+<div id="headerCarousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#headerCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#headerCarousel" data-slide-to="1"></li>
+        <li data-target="#headerCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active" style="background-image: url('header1.jpeg');">
+            <div class="carousel-caption">
+                <h1>Welcome to Bloom Bloom Bakudan</h1>
+            </div>
+        </div>
+        <div class="carousel-item" style="background-image: url('h2.jpeg');">
+            <div class="carousel-caption">
+                <h1>Explore Our Exquisite Collections</h1>
+            </div>
+        </div>
+        <div class="carousel-item" style="background-image: url('h3.jpeg');">
+            <div class="carousel-caption">
+                <h1>Shop Now for Exclusive Deals</h1>
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#headerCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#headerCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+<!-- End Header Slideshow -->
+
+    <!-- Product display -->
+    <section id="shop">
+        <h2>Shop</h2>
+        <div id="product-display">
+            <div class="product">
+                <img src="rose.jpeg" alt="Product 1">
+                <p>Rose - PHP 1350 <span class="hot-sign">HOT</span></p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="tulip.jpeg" alt="Product 2">
+                <p>Tulip - PHP 1750 <span class="hot-sign">HOT</span></p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="hydrangea.jpeg" alt="Product 2">
+                <p>Hydrangea - PHP 2250 <span class="hot-sign">HOT</span></p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="daisies.jpeg" alt="Product 2">
+                <p>Daisies - PHP 1250 <span class="hot-sign">HOT</span></p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            <div class="product">
+                <img src="peony.jpeg" alt="Product 2">
+                <p>Peonies - PHP 1575 <span class="hot-sign">HOT</span></p>
+                <button class="add-to-cart">Add to Cart</button>
+            </div>
+            
+            <!-- Add more products here -->
+        </div>
+    </section>
+
+    <!-- Cart -->
+    <section id="cart">
+        <h2>Cart</h2>
+        <ul id="cart-items">
+            <!-- Cart items will be dynamically added here -->
+        </ul>
+        <div id="total">Total: PHP 0.00</div>
+        <div id="proceed-to-checkout">
+            <a href="checkout.html" class="btn btn-primary">Proceed to Checkout</a>
+        </div>
+    </section>
+
+    <!-- Delivery Details -->
+    <section id="delivery-details">
+        <h2>Delivery Details</h2>
+        <form id="delivery-form">
+            <label for="cust-name">Name:</label>
+            <input type="text" id="cust-name" name="cust_name" required><br><br>
+
+            <label for="cust-email">Email:</label>
+            <input type="email" id="cust-email" name="cust_email" required><br><br>
+
+            <label for="cust-address">Address:</label>
+            <input type="text" id="cust-address" name="cust_addr" required><br><br>
+
+            <label for="cust-phone">Phone Number:</label>
+            <input type="text" id="cust-phone" name="cust_phone" required><br><br>
+
+            <button type="submit">Submit Delivery Details</button>
+        </form>
+    </section>
+
+    <!-- Currency dropdown -->
+    <div class="currency-dropdown">
+        <label for="currency">Select Currency:</label>
+        <select id="currency">
+            <option value="php" selected>PHP</option>
+        </select>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // JavaScript code to add items to the cart
+        document.addEventListener("DOMContentLoaded", function() {
+            const addToCartButtons = document.querySelectorAll(".add-to-cart");
+
+            addToCartButtons.forEach(button => {
+                button.addEventListener("click", function() {
+                    const product = this.closest(".product");
+                    const productName = product.querySelector("p").innerText.split(" - ")[0];
+                    const productPrice = parseFloat(product.querySelector("p").innerText.split(" - ")[1].replace("PHP", "").trim());
+                    const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+                    
+                    cartItems.push({ name: productName, price: productPrice });
+                    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+                    updateCart();
+                });
+            });
+
+            function updateCart() {
+                const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+                const cartItemsElement = document.getElementById("cart-items");
+                let totalPrice = 0;
+                
+                cartItemsElement.innerHTML = "";
+
+                cartItems.forEach((item, index) => {
+                    const li = document.createElement("li");
+                    li.textContent = `${item.name} - PHP ${item.price.toFixed(2)}`;
+                    const removeButton = document.createElement("button");
+                    removeButton.textContent = "Remove";
+                    removeButton.classList.add("remove-from-cart");
+                    removeButton.addEventListener("click", function() {
+                        cartItems.splice(index, 1);
+                        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+                        updateCart();
+                    });
+                    li.appendChild(removeButton);
+                    cartItemsElement.appendChild(li);
+                    totalPrice += item.price;
+                });
+
+                document.getElementById("total").textContent = `Total: PHP ${totalPrice.toFixed(2)}`;
+            }
+            updateCart(); // Update cart on page load
+        });
+        document.addEventListener("DOMContentLoaded", function() {
+            const menuToggle = document.getElementById("menu-toggle");
+            const mainNav = document.getElementById("main-nav");
+
+            menuToggle.addEventListener("click", function() {
+                mainNav.classList.toggle("show");
+            });
+        });
+    </script>
+</body>
+</html>

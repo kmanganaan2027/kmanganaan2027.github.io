@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bloom Bloom Bakudan - Catalog</title>
+    <link rel="icon" href="bbk.svg" type="logo">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* CSS styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f6f6f6; /* Soft pastel background */
+        }
+
+        header {
+            background-color: #99cc99; /* Soft green */
+            color: #444; /* Dark gray */
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center; /* Align items vertically */
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #444; /* Dark gray */
+            text-decoration: none;
+        }
+
+        .navbar-logo {
+            width: 40px;
+            height: auto;
+        }
+
+        section {
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px; /* Rounded corners */
+            background-color: #fff; /* White */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow */
+        }
+
+        .category {
+            margin-bottom: 20px;
+        }
+
+        .category-content {
+            display: flex;
+            flex-wrap: wrap; /* Wrap items into multiple rows */
+            margin-top: 10px; /* Add margin between rows */
+        }
+
+        .category h2 {
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .category p {
+            margin: 0;
+        }
+
+        .add-to-cart {
+            background-color: #007bff; /* Blue */
+            color: #fff; /* White */
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 10px; /* Add margin to separate buttons */
+        }
+
+        .add-to-cart:hover {
+            background-color: #0056b3; /* Darker blue on hover */
+        }
+
+        .product {
+            margin-right: 20px; /* Add margin between products */
+            margin-bottom: 20px; /* Add margin below each product */
+            width: 200px; /* Set a fixed width for each product */
+        }
+
+
+        .product img {
+    width: 250px; /* Adjust image width */
+    height: 250px; /* Set height to maintain aspect ratio */
+    margin-bottom: 10px;
+    border-radius: 8px; /* Rounded product images */
+}
+        .product {
+    margin-right: 20px; /* Add margin between products */
+    margin-bottom: 20px; /* Add margin below each product */
+    width: 200px; /* Set a fixed width for each product */
+    border: 1px solid #ccc; /* Add border to the product */
+    padding: 10px; /* Add padding to the product */
+    border-radius: 8px; /* Add rounded corners to the product */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a soft shadow */
+}
+
+.product img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 10px;
+}
+
+.product p {
+    margin-bottom: 5px; /* Add margin below each paragraph */
+}
+
+.product .hot-sign {
+    color: red; /* Change color of hot sign */
+    font-weight: bold; /* Make hot sign bold */
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="22.html"><img src="bbk.svg" alt="Bloom Bloom Bakudan Logo" class="title-logo" id="menu-toggle"></a></li>
+                <li><h1>Bloom Bloom Bakudan</h1></li>
+                <li id="main-nav">
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="catalog.html">Catalog</a></li>
+                        <li><a href="#cart"><img src="cart.svg" alt="Cart" class="navbar-logo"></a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="container">
+        <div class="category">
+            <div class="category-content">
+                <h2>Flowers</h2>
+                <p>Explore our beautiful collection of flowers. From roses to tulips, we have a variety of options to brighten up your day.</p>
+                <div class="product">
+                    <img src="rose.jpeg" alt="Product 1">
+                    <p>Rose - PHP 1350 <span class="hot-sign">HOT</span></p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="tulip.jpeg" alt="Product 2">
+                    <p>Tulip - PHP 1750 <span class="hot-sign">HOT</span></p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="hydrangea.jpeg" alt="Product 3">
+                    <p>Hydrangea - PHP 2250 <span class="hot-sign">HOT</span></p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="daisies.jpeg" alt="Product 4">
+                    <p>Daisies - PHP 1250 <span class="hot-sign">HOT</span></p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="peony.jpeg" alt="Product 5">
+                    <p>Peonies - PHP 1575 <span class="hot-sign">HOT</span></p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        <div class="category">
+            <div class="category-content">
+                <h2>Plants</h2>
+                <p>Bring some greenery into your life with our selection of indoor and outdoor plants. Perfect for adding a touch of nature to any space.</p>
+                <div class="product">
+                    <img src="p5.jpeg" alt="Product 1">
+                    <p>PHP 750 </p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="p1.jpeg" alt="Product 2">
+                    <p>PHP 1250 <span class="hot-sign">HOT</span></p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="p2.jpeg" alt="Product 3">
+                    <p>PHP 950 </p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="p3.jpeg" alt="Product 4">
+                    <p>PHP 850 <span class="hot-sign">HOT</span></p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="p4.jpeg" alt="Product 5">
+                    <p>PHP 550 <span class="hot-sign">HOT</span></p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+        <div class="category">
+            <div class="category-content">
+                <h2>Accessories</h2>
+
+                <p>Enhance your floral arrangements with our range of accessories. From vases to decorative elements, we have everything you need to make your flowers stand out.</p>
+                <div class="product">
+                    <img src="sheer.jpeg" alt="Product 1">
+                    <p>Pruning Sheers - PHP 750 </p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="loppers.jpeg" alt="Product 2">
+                    <p>Loppers - PHP 750 </p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="trowel.jpeg" alt="Product 3">
+                    <p>Hand Trowel - PHP 950 </p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="spade.jpeg" alt="Product 4">
+                    <p>Spade - PHP 850 <span class="hot-sign">HOT</span></p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+                <div class="product">
+                    <img src="take.jpeg" alt="Product 5">
+                    <p>Rake - PHP 950 <span class="hot-sign">HOT</span></p>
+                    <button class="add-to-cart">Add to Cart</button>
+                </div>
+
+            </div>
+        </div>
+        <div class="category">
+            <div class="category-content">
+                <h2>Gifts</h2>
+                <p>Looking for the perfect gift? Discover our curated collection of gift items, including flower arrangements, gift baskets, and more.</p>
+               
+                    <div class="product">
+                        <img src="orange.jpeg" alt="Product 1">
+                        <p>Bouqet 1 - PHP 1250 </p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="b2.jpeg" alt="Product 2">
+                        <p>Bouqet 2 - PHP 1750 </p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="b3.jpeg" alt="Product 3">
+                        <p>Bouqet 3 - PHP 1750 </p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="b33.jpeg" alt="Product 4">
+                        <p>Bouqet 4 - PHP 2250 <span class="hot-sign">HOT</span></p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+                    <div class="product">
+                        <img src="b5.jpeg" alt="Product 5">
+                        <p>Bouqet 5 - PHP 2250 <span class="hot-sign">HOT</span></p>
+                        <button class="add-to-cart">Add to Cart</button>
+                    </div>
+    
+            </div>
+        </div>
+    </section>
+        <!-- Cart -->
+        <section id="cart">
+            <h2>Cart</h2>
+            <ul id="cart-items">
+                <!-- Cart items will be dynamically added here -->
+            </ul>
+            <div id="total">Total: PHP 0.00</div>
+            <div id="proceed-to-checkout">
+                <a href="checkout.html" class="btn btn-primary">Proceed to Checkout</a>
+            </div>
+        </section>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+        // JavaScript code to add items to the cart
+        document.addEventListener("DOMContentLoaded", function() {
+            const addToCartButtons = document.querySelectorAll(".add-to-cart");
+
+            addToCartButtons.forEach(button => {
+                button.addEventListener("click", function() {
+                    const product = this.closest(".product");
+                    const productName = product.querySelector("p").innerText.split(" - ")[0];
+                    const productPrice = parseFloat(product.querySelector("p").innerText.split(" - ")[1].replace("PHP", "").trim());
+                    const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+                    
+                    cartItems.push({ name: productName, price: productPrice });
+                    localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+                    updateCart();
+                });
+            });
+
+            function updateCart() {
+                const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+                const cartItemsElement = document.getElementById("cart-items");
+                let totalPrice = 0;
+                
+                cartItemsElement.innerHTML = "";
+
+                cartItems.forEach((item, index) => {
+                    const li = document.createElement("li");
+                    li.textContent = `${item.name} - PHP ${item.price.toFixed(2)}`;
+                    const removeButton = document.createElement("button");
+                    removeButton.textContent = "Remove";
+                    removeButton.classList.add("remove-from-cart");
+                    removeButton.addEventListener("click", function() {
+                        cartItems.splice(index, 1);
+                        localStorage.setItem("cartItems", JSON.stringify(cartItems));
+                        updateCart();
+                    });
+                    li.appendChild(removeButton);
+                    cartItemsElement.appendChild(li);
+                    totalPrice += item.price;
+                });
+
+                document.getElementById("total").textContent = `Total: PHP ${totalPrice.toFixed(2)}`;
+            }
+            updateCart(); // Update cart on page load
+        });
+        document.addEventListener("DOMContentLoaded", function() {
+            const menuToggle = document.getElementById("menu-toggle");
+            const mainNav = document.getElementById("main-nav");
+
+            menuToggle.addEventListener("click", function() {
+                mainNav.classList.toggle("show");
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* CSS styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f6f6f6; /* Soft pastel background */
+        }
+
+        header {
+            background-color: #99cc99; /* Soft green */
+            color: #444; /* Dark gray */
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        nav ul li {
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            color: #444; /* Dark gray */
+            text-decoration: none;
+        }
+
+        section {
+            padding: 20px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #ccc;
+            background-color: #fff; /* White */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Soft shadow */
+            border-radius: 8px; /* Rounded corners */
+        }
+
+        .checkout-heading {
+            margin-bottom: 20px;
+        }
+
+        .checkout-form {
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        #cart-items li {
+            margin-bottom: 10px;
+        }
+
+        #total {
+            font-weight: bold;
+        }
+
+        .delivery-details {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="22.html"><img src="bbk.svg" alt="Bloom Bloom Bakudan Logo" class="title-logo" id="menu-toggle"></a></li>
+
+                <li><h1>Bloom Bloom Bakudan</h1></li>
+                <li id="main-nav">
+                    <ul>
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="catalog.html">Catalog</a></li>
+                        <li><a href="#cart"><img src="cart.svg" alt="Cart" class="navbar-logo"></a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    
+
+    <section id="cart">
+        <h2 class="checkout-heading">Cart</h2>
+        <ul id="cart-items">
+            <!-- Cart items will be dynamically added here -->
+        </ul>
+        <div id="total">Total: ₱0</div> <!-- Changed the currency symbol to PHP -->
+    </section>
+
+    <section id="delivery-details" class="delivery-details">
+        <h2 class="checkout-heading">Delivery Details</h2>
+        <form id="delivery-form" class="checkout-form" action="http://sirjm.infinityfreeapp.com/checkout.php" method="GET">
+            <label for="cust-name">Name:</label>
+            <input type="text" id="cust-name" name="cust_name" required><br><br>
+
+            <label for="cust-email">Email:</label>
+            <input type="email" id="cust-email" name="cust_email" required><br><br>
+
+            <label for="cust-address">Address:</label>
+            <input type="text" id="cust-address" name="cust_addr" required><br><br>
+
+            <label for="cust-phone">Phone Number:</label>
+            <input type="text" id="cust-phone" name="cust_phone" required><br><br>
+
+            <!-- Hidden input fields to store cart items and total -->
+            <input type="hidden" id="cust-order" name="cust_order" value=""> <!-- Hidden input field to store cart items -->
+            <input type="hidden" id="cust-total" name="cust_total" value=""> <!-- Hidden input field to store total -->
+
+            <button type="submit" class="btn btn-primary">Submit Delivery Details</button>
+        </form>
+    </section>
+
+    <script>
+        // JavaScript code to fetch and display cart items and handle form submissions
+        document.addEventListener("DOMContentLoaded", function() {
+            // Fetch cart items from localStorage
+            const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+
+            // Display cart items
+            const cartItemsElement = document.getElementById("cart-items");
+            let totalPrice = 0;
+            cartItems.forEach(item => {
+                const li = document.createElement("li");
+                li.textContent = `${item.name} - ₱${item.price}`; // Changed the currency symbol to PHP
+                cartItemsElement.appendChild(li);
+                totalPrice += item.price;
+            });
+            document.getElementById("total").textContent = `Total: ₱${totalPrice}`; // Changed the currency symbol to PHP
+
+            // Prepare cart order data for submission
+            const custOrder = cartItems.map(item => ({ prod_name: item.name, prod_price: item.price }));
+            document.getElementById("cust-order").value = JSON.stringify(custOrder);
+
+            // Store total in hidden input field
+            document.getElementById("cust-total").value = totalPrice;
+
+            // Handle delivery form submission
+            const deliveryForm = document.getElementById("delivery-form");
+            deliveryForm.addEventListener("submit", function(event) {
+                event.preventDefault(); // Prevent default form submission
+
+                // Collect delivery details
+                const deliveryDetails = {
+                    name: document.getElementById("cust-name").value,
+                    email: document.getElementById("cust-email").value,
+                    address: document.getElementById("cust-address").value,
+                    phone: document.getElementById("cust-phone").value
+                };
+
+                // Store delivery details in localStorage
+                localStorage.setItem("deliveryDetails", JSON.stringify(deliveryDetails));
+
+                // Submit the checkout form
+                document.getElementById("delivery-form").submit();
+            });
+        });
+    </script>
+</body>
+</html>
